@@ -1,5 +1,5 @@
 import Paper from "@mui/material/Paper";
-import variant from "./assets/pizza.json";
+import variant from "../pizza.json";
 import { Box, FormControlLabel, Radio, RadioGroup, Typography, styled } from "@mui/material";
 import { useState } from "react";
 
