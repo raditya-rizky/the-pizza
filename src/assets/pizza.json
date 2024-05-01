@@ -1,0 +1,72 @@
+{
+  "pizza": [
+    {
+      "name": "Margherita",
+      "price": "8",
+      "image": "./pizza-1.jpg",
+      "toppings": [
+        "avocado",
+        "brocolli",
+        "onions",
+        "zucchini",
+        "tuna",
+        "ham"
+      ]
+    },
+    {
+      "name": "Hawaiian",
+      "price": "10",
+      "image": "./pizza-2.jpg",
+      "toppings": [
+        "brocolli",
+        "onions",
+        "zucchini",
+        "lobster",
+        "oyster",
+        "salmon",
+        "bacon",
+        "ham"
+      ]
+    },
+    {
+      "name": "Pepperoni",
+      "price": "12",
+      "image": "./pizza-3.jpg",
+      "toppings": [
+        "brocolli",
+        "onions",
+        "zucchini",
+        "tuna",
+        "bacon",
+        "duck",
+        "ham",
+        "sausage"
+      ]
+    }
+  ],
+  "size": [
+    "small",
+    "medium",
+    "large"
+  ],
+  "toppings": {
+    "$1": [
+      "avocado",
+      "brocolli",
+      "onions",
+      "zucchini"
+    ],
+    "$2": [
+      "lobster",
+      "oyster",
+      "salmon",
+      "tuna"
+    ],
+    "$3": [
+      "bacon",
+      "duck",
+      "ham",
+      "sausage"
+    ]
+  }
+}
