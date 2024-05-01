@@ -44,24 +44,30 @@
       ]
     }
   ],
-  "toppings": {
-    "$1": [
-      "avocado",
-      "brocolli",
-      "onions",
-      "zucchini"
-    ],
-    "$2": [
-      "lobster",
-      "oyster",
-      "salmon",
-      "tuna"
-    ],
-    "$3": [
-      "bacon",
-      "duck",
-      "ham",
-      "sausage"
-    ]
-  }
+  "toppings": [
+    {
+      "$1": [
+        "avocado",
+        "brocolli",
+        "onions",
+        "zucchini"
+      ]
+    },
+    {
+      "$2": [
+        "lobster",
+        "oyster",
+        "salmon",
+        "tuna"
+      ]
+    },
+    {
+      "$3": [
+        "bacon",
+        "duck",
+        "ham",
+        "sausage"
+      ]
+    }
+  ]
 }
