@@ -4,18 +4,24 @@ import { useContext } from "react";
 import { PizzaContext, PizzaContextType } from "../../App";
 
 export function Toppings({ toppings }: { toppings: string[] }) {
-  const { toppingsObject, setToppingsObject } = useContext(PizzaContext) as PizzaContextType
+  const { toppingsObject, setToppingsObject, setCheckboxes, checkboxes } = useContext(PizzaContext) as PizzaContextType
 
   const toppingsArray = variant.toppings.reduce((accumulator, currentValue) => {
     const values = Object.values(currentValue)[0];
     return accumulator.concat(values);
   }, []);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, topping: string) => {
     setToppingsObject({
       ...toppingsObject,
       [event.target.name]: event.target.checked,
     });
+
+    setCheckboxes({
+      ...checkboxes,
+      [topping]: !checkboxes[topping],
+    })
   };
 
   return (
@@ -32,7 +38,8 @@ export function Toppings({ toppings }: { toppings: string[] }) {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      onChange={handleChange}
+                      onChange={(e) => handleChange(e, availableTopping)}
+                      checked={checkboxes[availableTopping]}
                     />
                   }
                   label={availableTopping}

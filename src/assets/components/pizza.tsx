@@ -29,7 +29,17 @@ const PizzaCard = styled(Paper)(({ theme }) => ({
 }))
 
 export function Pizza() {
-  const { setSelectedPizza, selectedPizza } = useContext(PizzaContext) as PizzaContextType
+  const { setSelectedPizza, selectedPizza, setCheckboxes, checkboxes, setToppingsObject } = useContext(PizzaContext) as PizzaContextType
+
+  function handleChange(pizzaName: string) {
+    setToppingsObject({})
+    setSelectedPizza(pizzaName);
+    const updatedCheckBoxes: Record<string, boolean> = {};
+    for (const key in checkboxes) {
+      (updatedCheckBoxes[key] as boolean) = false;
+    }
+    setCheckboxes(updatedCheckBoxes);
+  }
 
   return (
     <>
@@ -43,9 +53,7 @@ export function Pizza() {
               <PizzaCard
                 elevation={3}
                 key={pizza.name}
-                onClick={() =>
-                  setSelectedPizza(pizza.name)
-                }
+                onClick={() => handleChange(pizza.name)}
                 sx={{
                   transform: selectedPizza === pizza.name ? "scale(1.05)" : "none"
                 }}
