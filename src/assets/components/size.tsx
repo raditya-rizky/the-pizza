@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { PizzaContext, PizzaContextType } from "../../App";
 
 export function Size() {
-  const { size, setSize } = useContext(PizzaContext) as PizzaContextType
+  const { size, setSize, selectedPizza } = useContext(PizzaContext) as PizzaContextType
 
   return (
     <Box mt={8}>
@@ -32,6 +32,7 @@ export function Size() {
                 sx={{
                   color: "black",
                 }}
+                disabled={!selectedPizza}
               />
             ))
           }
