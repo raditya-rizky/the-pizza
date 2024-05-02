@@ -1,7 +1,8 @@
 import Paper from "@mui/material/Paper";
 import variant from "../pizza.json";
 import { Box, FormControlLabel, Radio, RadioGroup, Typography, styled } from "@mui/material";
-import { useState } from "react";
+import { useContext } from "react";
+import { PizzaContext, PizzaContextType } from "../../App";
 
 const Container = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -28,7 +29,7 @@ const PizzaCard = styled(Paper)(({ theme }) => ({
 }))
 
 export function Pizza() {
-  const [pizzaChosen, setPizzaChosen] = useState("")
+  const { setSelectedPizza, selectedPizza } = useContext(PizzaContext) as PizzaContextType
 
   return (
     <>
@@ -42,9 +43,11 @@ export function Pizza() {
               <PizzaCard
                 elevation={3}
                 key={pizza.name}
-                onClick={() => setPizzaChosen(pizza.name)}
+                onClick={() =>
+                  setSelectedPizza(pizza.name)
+                }
                 sx={{
-                  transform: pizzaChosen === pizza.name ? "scale(1.05)" : "none"
+                  transform: selectedPizza === pizza.name ? "scale(1.05)" : "none"
                 }}
               >
                 <Box
@@ -62,7 +65,7 @@ export function Pizza() {
 
                 <p
                   style={{
-                    fontWeight: pizzaChosen === pizza.name ? "bold" : "normal"
+                    fontWeight: selectedPizza === pizza.name ? "bold" : "normal"
                   }}
                 >
                   {pizza.name}
@@ -70,7 +73,7 @@ export function Pizza() {
 
                 <span
                   style={{
-                    fontWeight: pizzaChosen === pizza.name ? "bold" : "normal"
+                    fontWeight: selectedPizza === pizza.name ? "bold" : "normal"
                   }}
                 >${pizza.price}</span>
 
@@ -82,7 +85,7 @@ export function Pizza() {
                     display: "block",
                     textAlign: "center",
                   }}
-                  checked={pizza.name === pizzaChosen}
+                  checked={pizza.name === selectedPizza}
                 />
               </PizzaCard>
             ))
