@@ -103,7 +103,7 @@ export default function App() {
           </Typography>
 
           <Typography color={"black"} fontSize={42} fontWeight={700} variant='h2' mb={3}>
-            ${size === "small" ? price - 1 + toppingPrice : size === "large" ? price + 2 + toppingPrice : price + toppingPrice}
+            ${price + (size === "small" ? -1 : size === "large" ? 2 : 0) + toppingPrice}
           </Typography>
         </Box>
       </ThemeProvider>
