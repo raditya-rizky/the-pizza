@@ -87,7 +87,18 @@ export default function App() {
   }, [price, size, toppingsObject])
 
   return (
-    <PizzaContext.Provider value={{ selectedPizza, setSelectedPizza, size, setSize, toppingsObject, setToppingsObject, checkboxes, setCheckboxes }}>
+    <PizzaContext.Provider
+      value={{
+        selectedPizza,
+        setSelectedPizza,
+        size,
+        setSize,
+        toppingsObject,
+        setToppingsObject,
+        checkboxes,
+        setCheckboxes
+      }}
+    >
       <ThemeProvider theme={theme}>
         <Pizza />
         <Size />
